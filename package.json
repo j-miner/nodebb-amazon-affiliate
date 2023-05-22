@@ -1,11 +1,11 @@
 {
-  "name": "nodebb-plugin-quickstart",
-  "version": "0.4.3",
-  "description": "A starter kit for quickly creating NodeBB plugins",
+  "name": "nodebb-amazon-affiliate",
+  "version": "0.0.1",
+  "description": "Nodebb Amazon Affiliate Plugin",
   "main": "library.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nodebb/nodebb-plugin-quickstart"
+    "url": "https://github.com/j-miner/nodebb-amazon-affiliate"
   },
   "keywords": [
     "nodebb",
@@ -27,7 +27,7 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nodebb/nodebb-plugin-quickstart/issues"
+    "url": "https://github.com/j-miner/nodebb-amazon-affiliate"
   },
   "readmeFilename": "README.md",
   "nbbpm": {

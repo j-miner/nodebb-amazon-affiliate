@@ -9,7 +9,7 @@
  *
  * {
  *     "test_plugins": [
- *         "nodebb-plugin-quickstart"
+ *         "nodebb-amazon-affiliate"
  *     ]
  * }
  */
@@ -22,7 +22,7 @@ const assert = require('assert');
 
 const db = require.main.require('./test/mocks/databasemock');
 
-describe('nodebb-plugin-quickstart', () => {
+describe('nodebb-amazon-affiliate', () => {
 	before(() => {
 		// Prepare for tests here
 	});
