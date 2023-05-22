@@ -85,4 +85,28 @@ plugin.addAdminNavigation = (header) => {
 	return header;
 };
 
+// Create a new plugin object.
+const plugin = {
+  name: "Amazon Affiliate Link Converter",
+  description: "A plugin that converts Amazon links to affiliate links.",
+  version: "1.0.0",
+};
+
+// Define the plugin's hooks.
+plugin.hooks = {
+  post: {
+    save: function (post) {
+      // Get the Amazon affiliate tag.
+      var affiliateTag = "BBBBBBBBBBBBBBB";
+
+      // Convert all Amazon links in the post to affiliate links.
+      post.content = post.content.replace(/https?:\/\/www\.amazon\.com\/([\w-]+)\/dp\/([\w-]+)/g, function (match, productId, ASIN) {
+        return `https://www.amazon.com/${productId}/dp/${ASIN}?tag=${affiliateTag}`;
+      });
+    },
+  },
+};
+
+// Export the plugin object.
+
 module.exports = plugin;
