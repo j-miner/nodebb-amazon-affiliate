@@ -1,11 +1,11 @@
 {
-  "name": "nodebb-amazon-affiliate",
+  "name": "nodebb-plugin-amazon-affiliate",
   "version": "0.0.1",
   "description": "Nodebb Amazon Affiliate Plugin",
   "main": "library.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/j-miner/nodebb-amazon-affiliate"
+    "url": "https://github.com/j-miner/nodebb-plugin-amazon-affiliate"
   },
   "keywords": [
     "nodebb",
@@ -27,7 +27,7 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/j-miner/nodebb-amazon-affiliate"
+    "url": "https://github.com/j-miner/nodebb-plugin-amazon-affiliate"
   },
   "readmeFilename": "README.md",
   "nbbpm": {
