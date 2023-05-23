@@ -1,6 +1,6 @@
 {
-	"id": "nodebb-amazon-affiliate",
-	"url": "https://github.com/j-miner/nodebb-amazon-affiliate",
+	"id": "nodebb-plugin-amazon-affiliate",
+	"url": "https://github.com/j-miner/nodebb-plugin-amazon-affiliate",
 	"library": "./library.js",
 	"hooks": [
 		{ "hook": "static:app.load", "method": "init" },
