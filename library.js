@@ -85,29 +85,32 @@ plugin.addAdminNavigation = (header) => {
 	return header;
 };
 const AmazonPlugin = {
-  name: "Amazon Affiliate Plugin",
-  description: "This plugin takes an Amazon link and turns it into an Amazon affiliate link.",
-  init() {
-    // Get the user's Amazon affiliate code.
-    const affiliateCode = this.config.get("oppositelock-20");
+name: "Amazon Affiliate Plugin",
+description: "This plugin looks for an Amazon link in every post and turns it into an Amazon affiliate link.",
+init() {
+// Get the user's Amazon affiliate code.
+const affiliateCode = this.config.get("oppositelock-20");
 
-    // Create a function that takes an Amazon link and returns an Amazon affiliate link.
-    const getAffiliateLink = (link) => {
-      // Remove the "tag=" parameter from the link, if it exists.
-      const noTagLink = link.replace(/tag=[^&]*/, "");
+// Create a function that takes an Amazon link and returns an Amazon affiliate link.
+const getAffiliateLink = (link) => {
+  // Remove the "tag=" parameter from the link, if it exists.
+  const noTagLink = link.replace(/tag=[^&]*/, "");
 
-      // Add the affiliate code to the link.
-      return noTagLink + "&tag=" + affiliateCode;
-    };
+  // Add the affiliate code to the link.
+  return noTagLink + "&tag=" + affiliateCode;
+};
 
-    // Listen for link events and replace any Amazon links with affiliate links.
-    this.on("link", (link) => {
-      if (link.host === "www.amazon.com") {
-        // Replace the link with the affiliate link.
-        link.href = getAffiliateLink(link.href);
-      }
-    });
-  },
+// Listen for post events and replace any Amazon links with affiliate links.
+this.on("post", (post) => {
+  // Find all the Amazon links in the post.
+  const amazonLinks = post.content.match(/https?:\/\/www\.amazon\.com\/([\w-]+)/g);
+
+  // Replace the Amazon links with affiliate links.
+  for (const amazonLink of amazonLinks) {
+    post.content = post.content.replace(amazonLink, getAffiliateLink(amazonLink));
+  }
+});
+},
 };
 
 module.exports = AmazonPlugin;
