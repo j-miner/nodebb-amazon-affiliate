@@ -84,29 +84,30 @@ plugin.addAdminNavigation = (header) => {
 
 	return header;
 };
+const AmazonPlugin = {
+  name: "Amazon Affiliate Plugin",
+  description: "This plugin takes an Amazon link and turns it into an Amazon affiliate link.",
+  init() {
+    // Get the user's Amazon affiliate code.
+    const affiliateCode = this.config.get("oppositelock-20");
 
-// Create a new plugin object.
-const plugin = {
-  name: "Amazon Affiliate Link Converter",
-  description: "A plugin that converts Amazon links to affiliate links.",
-  version: "1.0.0",
-};
+    // Create a function that takes an Amazon link and returns an Amazon affiliate link.
+    const getAffiliateLink = (link) => {
+      // Remove the "tag=" parameter from the link, if it exists.
+      const noTagLink = link.replace(/tag=[^&]*/, "");
 
-// Define the plugin's hooks.
-plugin.hooks = {
-  post: {
-    save: function (post) {
-      // Get the Amazon affiliate tag.
-      var affiliateTag = "BBBBBBBBBBBBBBB";
+      // Add the affiliate code to the link.
+      return noTagLink + "&tag=" + affiliateCode;
+    };
 
-      // Convert all Amazon links in the post to affiliate links.
-      post.content = post.content.replace(/https?:\/\/www\.amazon\.com\/([\w-]+)\/dp\/([\w-]+)/g, function (match, productId, ASIN) {
-        return `https://www.amazon.com/${productId}/dp/${ASIN}?tag=${affiliateTag}`;
-      });
-    },
+    // Listen for link events and replace any Amazon links with affiliate links.
+    this.on("link", (link) => {
+      if (link.host === "www.amazon.com") {
+        // Replace the link with the affiliate link.
+        link.href = getAffiliateLink(link.href);
+      }
+    });
   },
 };
 
-// Export the plugin object.
-
-module.exports = plugin;
+module.exports = AmazonPlugin;
