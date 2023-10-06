@@ -1,14 +1,11 @@
 {
-	"id": "nodebb-plugin-amazon-affiliate",
-	"name": "NodeBB Amazon Affiliate Plugin",
-    	"description": "Rewrites amazon.com links in posts and signatures to include your affiliate tag",
-	"url": "https://github.com/j-miner/nodebb-plugin-amazon-affiliate",
-	"library": "./library.js",
-	"hooks": [
-		{ "hook": "static:app.load", "method": "init" },
-		{ "hook": "static:api.routes", "method": "addRoutes" },
-		{ "hook": "filter:admin.header.build", "method": "addAdminNavigation" }
-		{
+    "id": "nodebb-plugin-amazon-affiliate",
+    "name": "NodeBB Amazon Affiliate Plugin",
+    "description": "Rewrites amazon.com links in posts and signatures to include your affiliate tag",
+    "url": "https://github.com/j-miner/nodebb-plugin-amazon-affiliate",
+    "library": "./library.js",
+    "hooks": [
+        {
             "hook": "filter:parse.post",
             "method": "parse",
             "callbacked": true
@@ -21,22 +18,5 @@
             "method": "parse",
             "callbacked": true
         }
-	],
-	"staticDirs": {
-		"static": "./static"
-	},
-	"scss": [
-		"static/scss/quickstart.scss"
-	],
-	"scripts": [
-		"static/lib/main.js"
-	],
-	"acpScripts": [
-		"static/lib/acp-main.js"
-	],
-	"modules": {
-		"../client/quickstart.js": "./static/lib/quickstart.js",
-		"../admin/plugins/quickstart.js": "./static/lib/admin.js"
-	},
-	"templates": "static/templates"
+    ]
 }
