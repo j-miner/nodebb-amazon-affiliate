@@ -1,6 +1,6 @@
 {
   "name": "nodebb-plugin-amazon-affiliate",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Rewrites amazon.com links in posts and signatures to include your affiliate tag",
   "main": "library.js",
   "scripts": {
