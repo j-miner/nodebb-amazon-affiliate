@@ -4,8 +4,7 @@
   "description": "Nodebb Amazon Affiliate Plugin",
   "main": "library.js",
    "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"    "shell"
-
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -14,7 +13,7 @@
   "keywords": [
     "nodebb",
     "plugin",
-    "amazon",
+    "amazon"
   ],
   "husky": {
     "hooks": {
